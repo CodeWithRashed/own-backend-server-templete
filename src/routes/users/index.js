@@ -1,8 +1,8 @@
-const getActiveUser = require("../../api/users/controllers/getActiveUser")
-const verifyToken = require("../../middlewares/verifyToken")
-
-const router = require("express").Router()
+import { Router } from "express";
+import { verifyToken } from "../../middlewares/verifyToken.js";
+import { getActiveUser } from "../../api/users/controllers/getActiveUser.js";
+const router = Router()
 
 router.get("/api/user", verifyToken, getActiveUser)
 
-module.exports = router
+export default router

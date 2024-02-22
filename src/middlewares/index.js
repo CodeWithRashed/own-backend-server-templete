@@ -1,9 +1,10 @@
-const cookieParser = require("cookie-parser");
-const cors = require('cors');
-const express = require("express");
-const { LOCAL_CLIENT, LOCAL_CLIENT_SECOND, CLIENT_FIREBASE, CLIENT_VERCEL } = require("../config/defaults");
+import cookieParser from "cookie-parser";
+import cors from "cors"
+import config from "../config/defaults.js";
+import express from "express"
+const { LOCAL_CLIENT, LOCAL_CLIENT_SECOND, CLIENT_FIREBASE, CLIENT_VERCEL } = config;
 
-const applyMiddleware = (app)=>{
+export const applyMiddleware = (app) =>{
     
 // middleware
 app.use(cors({
@@ -18,5 +19,3 @@ app.use(cors({
 app.use(express.json());
 app.use(cookieParser());
 }
-
-module.exports = applyMiddleware

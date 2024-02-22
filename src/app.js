@@ -1,12 +1,13 @@
-const express = require("express");
-const applyMiddleware = require("./middlewares");
-const globalErrorHandler = require("./utils/globalErrorHandler");
-require("dotenv").config();
+import express from "express"
 const app = express();
 
-const authRoutes = require('./routes/authentication');
-const userRoutes = require("./routes/users");
 
+import { globalErrorHandler } from "./utils/globalErrorHandler.js";
+import {applyMiddleware} from "./middlewares/index.js";
+
+
+import authRoutes from './routes/authentication/index.js';
+import userRoutes from './routes/users/index.js';
 applyMiddleware(app);
 
 
@@ -31,4 +32,4 @@ app.use(globalErrorHandler);
 
 
 
-module.exports = app
+export default app
